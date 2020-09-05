@@ -15,7 +15,7 @@ namespace icCoffee
             DropDownList1.Visible = true;
             if (!IsPostBack)
             {
-
+            //clear previously viewed selections on reload
                 DropDownList1.AppendDataBoundItems = true;
                 DropDownList1.Items.Insert(0, new ListItem("Select Shop", String.Empty));
                 DropDownList1.SelectedIndex = 0;
@@ -31,6 +31,7 @@ namespace icCoffee
 
         protected void DropDownList1_SelectedIndexChanged1(object sender, EventArgs e)
         {
+        //show prooer database table when selected by user
             if (DropDownList1.SelectedIndex == 0)
             { GridView2.Visible = true; }
             else
