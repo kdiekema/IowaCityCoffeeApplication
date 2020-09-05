@@ -15,7 +15,9 @@ namespace icCoffee
             if (!IsPostBack)
 
             {
+            // Add new review to the list
                 ShopDDL.AppendDataBoundItems = true;
+             // Reset drop down list to empty choice
                 ShopDDL.Items.Insert(0, new ListItem("Select Shop", String.Empty));
                 ShopDDL.SelectedIndex = 0;
 
@@ -26,8 +28,9 @@ namespace icCoffee
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
 
-
+            // SQK query to add review to database if submit button clicked
             dbConnection.ExecuteInsertQuery("Insert kd_Review (shopID, rating, review) Values ('" + ShopDDL.SelectedValue + "', '" + rbReview.SelectedValue + "', '" + txtReview.Text + "')");
+            // show feedback that review was added
             lbResult.Visible = true;
             lbResult.Text = "Your review has been added!";
             
@@ -37,6 +40,7 @@ namespace icCoffee
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
+        //if user clickcs cancel button, reset and clear all inputs
             ShopDDL.SelectedIndex= 0;
             rbReview.ClearSelection(); 
             txtReview.Text = "";
