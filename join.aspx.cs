@@ -17,6 +17,7 @@ namespace icCoffee
             if (!IsPostBack)
 
             {
+            //reset entries on reload
             txtFirstName.Text = "";
             txtLastName.Text = "";
             txtEmail.Text = "";
@@ -29,6 +30,7 @@ namespace icCoffee
         {
             if (Page.IsValid)
             {
+        // Add entries to SQL database if submit button is clicked
                 dbConnection.ExecuteInsertQuery("Insert kd_Network (firstName, lastName, email, phone, favorite) Values ('" + txtFirstName.Text + "', '" + txtLastName.Text + "', '" + txtEmail.Text + "', '" + txtPhone.Text + "', '" + txtFave.Text + "')");
                 lbResult.Text = "You have been added!";
             }
@@ -36,6 +38,7 @@ namespace icCoffee
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
+        // Clear entries if cancel button is clicked
             txtFirstName.Text = "";
             txtLastName.Text = "";
             txtEmail.Text = "";
