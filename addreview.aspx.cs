@@ -15,7 +15,7 @@ namespace icCoffee
             if (!IsPostBack)
 
             {
-            // Add new review to the list
+               // Show the items from the drop down list
                 ShopDDL.AppendDataBoundItems = true;
              // Reset drop down list to empty choice
                 ShopDDL.Items.Insert(0, new ListItem("Select Shop", String.Empty));
